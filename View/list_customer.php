@@ -1,6 +1,4 @@
-<pre>
-<?php print_r($_SESSION['customerss']); ?>
-</pre>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -33,6 +31,7 @@
         </style>
     </head>
     <body>
+        
         <div class="container">
         <div class="row cha justify-content-center">
             <div class="col-6">
@@ -44,12 +43,7 @@
                 <div class="col-12"> <h1>All List Customer's</h1> </div>
             </div>
             <div class="row">
-                <div class="col-3">
-                    <ul class="list-group">
-                        <a href="?action=list_customer"><li class="list-group-item">Tất cả người dùng</li></a>
-                        <a href=""><li class="list-group-item">New Customer</li></a>
-                    </ul>
-                </div>
+            <?php include('menu.php'); ?>
                 <div class="col-9">
                     <table class="table">
                         <thead>
@@ -70,11 +64,18 @@
                                 <td><?= $customer->getName(); ?></td>
                                 <td><?= $customer->getPass(); ?></td>
                                 <td><?= $customer->getPhone(); ?></td>
-                                <td><a  class="btn btn-outline-danger btn-sm" href="#">Delete</a></td>
+                                <td><a href="?action=delete&id=<?php echo $customer->getcustomerId();  ?>" class="btn btn-outline-danger btn-sm" >Delete</a></td>
                             </tr>
                         <?php endforeach ?>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                <h5><?php echo "Wellcome " . $_SESSION['email'] . " !" ;?></h5>
                 </div>
             </div>
         </div>
